@@ -11,8 +11,7 @@ $(document).ready(function(){
     $("#trainButton").click(function(event){
         var trainName = $("#trainName").val().trim();
         var destination = $("#destination").val().trim();
-        var firstArrival = $("#firstArrival").val().trim();
+        var firstArrival = moment($("#firstArrival").val().trim(), "HH:mm").subtract(16, "hours").format("X");
         var frequency = $("#frequency").val().trim();
-
     });
 });
