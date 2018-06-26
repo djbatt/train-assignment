@@ -7,4 +7,12 @@ $(document).ready(function(){
       storageBucket: "",
       messagingSenderId: "142235789754"
     };
+
+    $("#trainButton").click(function(event){
+        var trainName = $("#trainName").val().trim();
+        var destination = $("#destination").val().trim();
+        var firstArrival = $("#firstArrival").val().trim();
+        var frequency = $("#frequency").val().trim();
+
+    });
 });
