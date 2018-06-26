@@ -6,10 +6,73 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
         <link rel="stylesheet" href="assets/css/style.css">
         <script src="assets/javascript/game.js" type="text/javascript"></script>
         <title>Train Assignment</title>
     </head>
     <body>
+        <div class="container wrapper">
+            <row class="row">
+                <column class="col-md-12 text-center">
+                    <h1>It's Train Time</h1>
+                    <h2>Schedule any train you want!</h2>
+                </column>
+                <br>
+                <br>
+                <column class="col-md-8 text-center">
+                    <div class="panel">
+                        <div class="panel-heading">Current Train Schedule</div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Train Name</th>
+                                        <th>Destination</th>
+                                        <th>Frequency (Min)</th>
+                                        <th>Next Arrival</th>
+                                        <th>Minutes Away</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="trainTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </column>
+                <column class="col-md-4 text-center">
+                    <div class="panel">
+                        <div class="panel-heading">Add A New Train</div>
+                        <div class="panel-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="trainName">Train Name</label>
+                                    <input type="text" class="form-control" id="trainName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="destination">Destination</label>
+                                    <input type="text" class="form-control" id="destination">
+                                </div>
+                                <div class="form-group">
+                                    <label for="frequency">Frequency (Minutes)</label>
+                                    <input type="text" class="form-control" id="frequency">
+                                </div>
+                                <div class="form-group">
+                                    <label for="arrival">Next Arrival</label>
+                                    <input type="text" class="form-control" id="arrival">
+                                </div>
+                                <div class="form-group">
+                                    <label for="minutes">Minutes Away</label>
+                                    <input type="text" class="form-control" id="minutes">
+                                </div>
+
+                                <button type="submit" class="btn btn-success" id="trainButton">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </column>
+            </row>
+        </div>
     </body>
 </html>
