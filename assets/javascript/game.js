@@ -42,8 +42,18 @@ $(document).ready(function(){
         var firstArrival = childSnapshot.val().firstArrival;
         var frequency = childSnapshot.val().frequency;
 
-        var firstArrivalMoment = moment(firstArrival, "hh:mm").subtract(1, "years");
+        var firstArrivalMoment = moment(firstArrival, "HH:mm");
         console.log(firstArrivalMoment);
-        var currentTime = moment();
+        var currentTime = moment().format("HH:mm")
+        console.log(currentTime);
+        var difference = moment().diff(moment(firstArrivalMoment), "minutes");
+        console.log(difference);
+        var remainingTime = difference % frequency;
+        console.log(remainingTime);
+        var minutesRemaining = frequency - remainingTime;
+        console.log(minutesRemaining);
+        var nextArrival = moment().add(minutesRemaining, "minutes").format("HH:mm");
+
+        $("#trainTable").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + nextArrival + "</td><td>" + minutesRemaining + "</td></tr>");
     });
 });
