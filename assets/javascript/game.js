@@ -33,4 +33,17 @@ $(document).ready(function(){
 
         return false;
     });
+
+    database.ref().on("child_added", function(childSnapshot){
+        console.log(childSnapshot.val());
+
+        var trainName = childSnapshot.val().trainName;
+        var destination = childSnapshot.val().destination;
+        var firstArrival = childSnapshot.val().firstArrival;
+        var frequency = childSnapshot.val().frequency;
+
+        var firstArrivalMoment = moment(firstArrival, "hh:mm").subtract(1, "years");
+        console.log(firstArrivalMoment);
+        var currentTime = moment();
+    });
 });
