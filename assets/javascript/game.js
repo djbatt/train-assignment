@@ -7,11 +7,30 @@ $(document).ready(function(){
       storageBucket: "",
       messagingSenderId: "142235789754"
     };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
 
     $("#trainButton").click(function(event){
+        event.preventDefault();
         var trainName = $("#trainName").val().trim();
         var destination = $("#destination").val().trim();
-        var firstArrival = moment($("#firstArrival").val().trim(), "HH:mm").subtract(16, "hours").format("X");
+        var firstArrival = $("#firstArrival").val().trim();
         var frequency = $("#frequency").val().trim();
+
+        var userTrain = {
+            trainName: trainName,
+            destination: destination,
+            firstArrival: firstArrival,
+            frequency: frequency,
+        }
+
+        database.ref().push(userTrain);
+
+        console.log(userTrain);
+
+        document.getElementById("trainForm").reset();
+
+        return false;
     });
 });
